@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_Word"
         mc:Ignorable="d"
-        Title="WordWordWord!" Height="600" Width="1200"  MinHeight="700" MinWidth="1200"
+        Title="WordWordWord!" Height="600" Width="1200"  MinHeight="700" MinWidth="1300"
         xmlns:ui="http://schemas.modernwpf.com/2019"
         Background = "LightGray"
     ui:WindowHelper.UseModernWindowStyle="True">
@@ -70,7 +70,7 @@
                 </TabItem >
                 <TabItem x:Name="tab_Block2">
                     <TabItem.Header>
-                        <TextBlock Width="170" TextWrapping="WrapWithOverflow" TextAlignment="Center">Данные нейропсихологического обследования</TextBlock>
+                        <TextBlock Width="120" TextWrapping="WrapWithOverflow" TextAlignment="Center">Данные нейро- психологического обследования</TextBlock>
                     </TabItem.Header>
                     <StackPanel Margin="12" x:Name="StackPanel_b2">
                         <CheckBox Margin="0,0,0,12" Content="... неохотно идет на контакт с нейропсихологом, на вопросы отвечает не развёрнуто. " x:Name="cb_Block2_T1"   IsChecked="True"></CheckBox>
@@ -84,7 +84,7 @@
                 </TabItem>
                 <TabItem x:Name="tab_Block3">
                     <TabItem.Header>
-                        <TextBlock Width="130" TextWrapping="WrapWithOverflow" TextAlignment="Center">Работоспособность и внимание</TextBlock>
+                        <TextBlock Width="100" TextWrapping="WrapWithOverflow" TextAlignment="Center">Работо- способность и внимание</TextBlock>
                     </TabItem.Header>
                     <StackPanel Margin="12" x:Name="StackPanel_b3">
                         <CheckBox Margin="0,0,0,12" Content="Умственная работоспособность несколько снижена, отмечена тенденция к истощению. " x:Name="cb_Block3_T1"   IsChecked="True"></CheckBox>
@@ -139,26 +139,41 @@
                     
                 </TabItem>
 
-                <TabItem x:Name="tab_Block7">
+                <TabItem x:Name="tab_Block71">
                     <TabItem.Header>
-                        <TextBlock Width="100" TextWrapping="WrapWithOverflow" TextAlignment="Center">Исследования речевой сферы и мышления</TextBlock>
+                        <TextBlock Width="90" TextWrapping="WrapWithOverflow" TextAlignment="Center">Исследования речевой сферы</TextBlock>
                     </TabItem.Header>
-                    <StackPanel Margin="12" x:Name="StackPanel_b7">
-                        <TextBlock Text="Исследования речевой сферы:" Margin="0,0,0,6" FontWeight="Bold" />
+                    <StackPanel Margin="12" x:Name="StackPanel_b71">
+                        
                         <CheckBox Margin="0,0,0,12" Content="Экспрессивная речь . Самостоятельный пересказ текста со слов нейропсихолога выполняет. " x:Name="cb_Block7_T1"   IsChecked="True"></CheckBox>
                         <CheckBox Margin="0,0,0,12" Content="Понимание предложных конструкций затруднено; при понимании логико-грамматических конструкций ошибок не зафиксировано. " x:Name="cb_Block7_T2"   IsChecked="True"></CheckBox>
                         <CheckBox Margin="0,0,0,12" Content="Фонематический слух сформирован. " x:Name="cb_Block7_T3"   IsChecked="True"></CheckBox>
-                        <TextBlock Text="Мышление:" Margin="0,12,0,6" FontWeight="Bold" />
-                        <CheckBox Margin="0,0,0,12" Content="Смысл рассказа понимает; способность делать выводы сформирована. " x:Name="cb_Block7_T4"   IsChecked="True"></CheckBox>
-                        <CheckBox Margin="0,0,0,12" Content="Смысл сюжетной картинки и серии картинок понимает верно. " x:Name="cb_Block7_T5"   IsChecked="True"></CheckBox>
-                        <CheckBox Margin="0,0,0,12" Content="В пробах на мышление «4-й лишний» (анализ, обобщение) трудностей не отмечено. " x:Name="cb_Block7_T6"   IsChecked="True"></CheckBox>
-                        <CheckBox Margin="0,0,0,12" Content="В пробах «Аналогии» отмечены трудности во всех предъявляемых заданиях. " x:Name="cb_Block7_T7"   IsChecked="True"></CheckBox>
-                        <CheckBox Margin="0,0,0,12" Content="Счётные навыки сформированы по возрасту. " x:Name="cb_Block7_T8"   IsChecked="True"></CheckBox>
+                        
                         
                     </StackPanel>
 
 
                 </TabItem>
+                <TabItem x:Name="tab_Block72">
+                    <TabItem.Header>
+                        <TextBlock Width="90" TextWrapping="WrapWithOverflow" TextAlignment="Center">Исследования мышления</TextBlock>
+                    </TabItem.Header>
+                    <StackPanel Margin="12" x:Name="StackPanel_b72">
+
+                        
+                        <CheckBox Margin="0,0,0,12" Content="Смысл рассказа понимает; способность делать выводы сформирована. " x:Name="cb_Block7_T4"   IsChecked="True"></CheckBox>
+                        <CheckBox Margin="0,0,0,12" Content="Смысл сюжетной картинки и серии картинок понимает верно. " x:Name="cb_Block7_T5"   IsChecked="True"></CheckBox>
+                        <CheckBox Margin="0,0,0,12" Content="В пробах на мышление «4-й лишний» (анализ, обобщение) трудностей не отмечено. " x:Name="cb_Block7_T6"   IsChecked="True"></CheckBox>
+                        <CheckBox Margin="0,0,0,12" Content="В пробах «Аналогии» отмечены трудности во всех предъявляемых заданиях. " x:Name="cb_Block7_T7"   IsChecked="True"></CheckBox>
+                        <CheckBox Margin="0,0,0,12" Content="Счётные навыки сформированы по возрасту. " x:Name="cb_Block7_T8"   IsChecked="True"></CheckBox>
+
+                    </StackPanel>
+
+
+                </TabItem>
+
+
+                
 
                 <TabItem x:Name="tab_Block8">
                     <TabItem.Header>
