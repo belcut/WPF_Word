@@ -106,6 +106,18 @@ namespace WPF_Word
                     b6_Text += box.Content + "\n";
                 }
             }
+
+            // Блок 9
+            var Checkboxes_b9 = StackPanel_b9.Children.OfType<System.Windows.Controls.CheckBox>().ToList();
+            b9_Text = "";
+            foreach (System.Windows.Controls.CheckBox box in Checkboxes_b9)
+            {
+                if (box.IsChecked == true)
+                {
+                    b9_Text += box.Content + "\n";
+                }
+            }
+
             // Работа с Word__________________________________________ 
 
             object oMissing = Missing.Value;
@@ -150,6 +162,9 @@ namespace WPF_Word
 
             Word.Range wordRange6 = oDoc.Bookmarks.get_Item("b6").Range;
             wordRange6.Text = b6_Text;
+
+            Word.Range wordRange9 = oDoc.Bookmarks.get_Item("b9").Range;
+            wordRange9.Text = b9_Text;
 
         }
 

@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="WordWordWord!" Height="600" Width="1200"  MinHeight="700" MinWidth="1300"
         xmlns:ui="http://schemas.modernwpf.com/2019"
-        Background = "LightGray"
+        
     ui:WindowHelper.UseModernWindowStyle="True">
 
     <Grid>
@@ -15,8 +15,8 @@
             <RowDefinition Height="600"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <ui:SimpleStackPanel Margin="0" Spacing="10" Grid.Row="0" Background="#FFEDEDED">
-            <TabControl Background="LightGray">
+        <ui:SimpleStackPanel Margin="0" Spacing="10" Grid.Row="0" >
+            <TabControl >
                 <TabItem x:Name="tab_Block1">
                     <TabItem.Header>
                         <TextBlock Width="80" TextWrapping="WrapWithOverflow" TextAlignment="Center">Основные данные</TextBlock>
