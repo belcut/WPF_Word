@@ -1,0 +1,210 @@
+﻿<Window x:Class="WPF_Word.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_Word"
+        mc:Ignorable="d"
+        Title="WordWordWord!" Height="600" Width="1200"  MinHeight="700" MinWidth="1200"
+        xmlns:ui="http://schemas.modernwpf.com/2019"
+        Background = "LightGray"
+    ui:WindowHelper.UseModernWindowStyle="True">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="600"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <ui:SimpleStackPanel Margin="0" Spacing="10" Grid.Row="0" Background="#FFEDEDED">
+            <TabControl Background="LightGray">
+                <TabItem x:Name="tab_Block1">
+                    <TabItem.Header>
+                        <TextBlock Width="80" TextWrapping="WrapWithOverflow" TextAlignment="Center">Основные данные</TextBlock>
+                    </TabItem.Header>
+                    <ui:SimpleStackPanel Margin="12" Spacing="0"  >
+                        <ui:SimpleStackPanel Margin="12" Spacing="24" Orientation="Horizontal" VerticalAlignment="Center">
+                            <TextBlock Text="Фамилия, Имя, Отчество:" VerticalAlignment="Center"/>
+                            <TextBox x:Name="tb_FIO" Text="Иванов Иван Иванович" HorizontalAlignment="Stretch" Width="300"/>
+                            <TextBlock  Text="Возраст:" VerticalAlignment="Center"/>
+                            <TextBox x:Name="tb_Age" Text="6 лет" HorizontalAlignment="Stretch" Width="300"/>
+
+                        </ui:SimpleStackPanel>
+                        <ui:SimpleStackPanel Margin="12" Spacing="24" Orientation="Horizontal" VerticalAlignment="Center">
+                            <TextBlock Text="Дата рождения:" VerticalAlignment="Center"/>
+                            <TextBox x:Name="tb_BirthDate" Text="01.10.2012" HorizontalAlignment="Stretch" Width="200"/>
+                            <TextBlock Text="Дата обследования:" VerticalAlignment="Center"/>
+                            <TextBox x:Name="tb_ResumeDate" Text="19.01.2022" HorizontalAlignment="Stretch" Width="200"/>
+
+                        </ui:SimpleStackPanel>
+                        <ui:SimpleStackPanel Margin="12" Spacing="10" Orientation="Vertical" VerticalAlignment="Center">
+                            <TextBlock Text="Краткий анамнез со слов мамы:" VerticalAlignment="Center" />
+                            <TextBox x:Name="tb_Block1_T1" HorizontalAlignment="Stretch" Height="60" AcceptsReturn="True" Text="В первой половине беременности отмечался слабый токсикоз; во второй половине беременности отмечался тонус, маловодие." TextWrapping="Wrap" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto"/>
+                            <TextBlock Text="Роды:" VerticalAlignment="Center" />
+                            <TextBox x:Name="tb_Block1_T2" HorizontalAlignment="Stretch" Height="60" AcceptsReturn="True" Text="в срок, на 39 неделе, самостоятельные с применением капельницы. Ребенок родился в ягодичном предлежании. Вес ребенка при рождении 3150 гр., рост 52 см." TextWrapping="Wrap"/>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                </Grid.ColumnDefinitions>
+                                <ui:SimpleStackPanel Margin="0" Spacing="10" Orientation="Vertical" VerticalAlignment="Center" Grid.Column="0">
+                                    <TextBlock Text="Моторное развитие: " VerticalAlignment="Center" />
+                                    <TextBox x:Name="tb_Block1_T3" Margin="0,0,20,0"  HorizontalAlignment="Stretch" Height="50" AcceptsReturn="True" Text="голову держит / ползает – нет данных; сидит с 6 мес., ходит самостоятельно с 10 мес." TextWrapping="WrapWithOverflow"/>
+                                    <TextBlock Text="Речевое развитие:" VerticalAlignment="Center" />
+                                    <TextBox x:Name="tb_Block1_T4" Margin="0,0,20,0" HorizontalAlignment="Stretch" Height="50" AcceptsReturn="True" Text="гуление / лепет / первые слова / фразы – нет данных." TextWrapping="WrapWithOverflow"/>
+                                </ui:SimpleStackPanel>
+                                <ui:SimpleStackPanel Margin="0" Spacing="10" Orientation="Vertical" VerticalAlignment="Center" Grid.Column="1">
+                                    <TextBlock Text="Состав семьи:" VerticalAlignment="Center" />
+                                    <TextBox x:Name="tb_Block1_T5" HorizontalAlignment="Stretch" Height="50" AcceptsReturn="True" Text="мама, папа, младшая сестра." TextWrapping="WrapWithOverflow"/>
+                                    <TextBlock Text="Социальная среда:" VerticalAlignment="Center" />
+                                    <TextBox x:Name="tb_Block1_T6" HorizontalAlignment="Stretch" Height="50" AcceptsReturn="True" Text="посещает детский садик." TextWrapping="WrapWithOverflow"/>
+                                </ui:SimpleStackPanel>
+                            </Grid>
+
+
+
+
+                        </ui:SimpleStackPanel>
+
+
+                    </ui:SimpleStackPanel>
+                </TabItem >
+                <TabItem x:Name="tab_Block2">
+                    <TabItem.Header>
+                        <TextBlock Width="170" TextWrapping="WrapWithOverflow" TextAlignment="Center">Данные нейропсихологического обследования</TextBlock>
+                    </TabItem.Header>
+                    <StackPanel Margin="12" x:Name="StackPanel_b2">
+                        <CheckBox Margin="0,0,0,12" Content="... неохотно идет на контакт с нейропсихологом, на вопросы отвечает не развёрнуто. " x:Name="cb_Block2_T1"   IsChecked="True"></CheckBox>
+                        <CheckBox Margin="0,0,0,12" Content="Эмоциональный фон нейтральный, заинтересованность в выполнении заданий не демонстрирует. " x:Name="cb_Block2_T2"   IsChecked="True"></CheckBox>
+                        <CheckBox Margin="0,0,0,12" Content="Инструкцию понимает не с первого раза. Сфера общих знаний сформирована. " x:Name="cb_Block2_T3"   IsChecked="True"></CheckBox>
+                        <CheckBox Margin="0,0,0,12" Content="Во времени и месте ориентирован. " x:Name="cb_Block2_T4"   IsChecked="True"></CheckBox>
+                        <CheckBox Margin="0,0,0,12" Content="Правша. " x:Name="cb_Block2_T5"   IsChecked="True"></CheckBox>
+                        <CheckBox Margin="0,0,0,12" Content="Левша. " x:Name="cb_Block2_T6"   IsChecked="False"></CheckBox>
+                        <CheckBox Margin="0,0,0,12" Content="Объективно: " x:Name="cb_Block2_T7"   IsChecked="True"></CheckBox>
+                    </StackPanel>
+                </TabItem>
+                <TabItem x:Name="tab_Block3">
+                    <TabItem.Header>
+                        <TextBlock Width="130" TextWrapping="WrapWithOverflow" TextAlignment="Center">Работоспособность и внимание</TextBlock>
+                    </TabItem.Header>
+                    <StackPanel Margin="12" x:Name="StackPanel_b3">
+                        <CheckBox Margin="0,0,0,12" Content="Умственная работоспособность несколько снижена, отмечена тенденция к истощению. " x:Name="cb_Block3_T1"   IsChecked="True"></CheckBox>
+                        <CheckBox Margin="0,0,0,12" Content="Время выполнения пробы «Личики» 1 мин. 28 сек., 1 мин. 34 сек., 1 мин. 40 сек. " x:Name="cb_Block3_T2"   IsChecked="True"></CheckBox>
+                        <CheckBox Margin="0,0,0,12" Content="Количество ошибок в пределах нормы. " x:Name="cb_Block3_T3"   IsChecked="True"></CheckBox>
+                        
+                    </StackPanel>
+                    
+                </TabItem>
+                <TabItem x:Name="tab_Block4">
+                    <TabItem.Header>
+                        <TextBlock Width="100" TextWrapping="WrapWithOverflow" TextAlignment="Center">Исследование движений и действий</TextBlock>
+                    </TabItem.Header>
+                    <StackPanel Margin="12" x:Name="StackPanel_b4">
+                        <CheckBox Margin="0,0,0,12" Content="При выполнении пробы на реципрокную координацию наблюдались сбои в обеих руках. При совместном выполнении с нейропсихологом Николай справляется с пробой успешнее. " x:Name="cb_Block4_T1"   IsChecked="True"></CheckBox>
+                        <CheckBox Margin="0,0,0,12" Content="Самостоятельное выполнение двигательной пробы на динамический праксис с правой руки недоступно, совместно со специалистом выполняет пробу неуверенно, наблюдается тенденция к нарушению порядка движений. " x:Name="cb_Block4_T2"   IsChecked="True"></CheckBox>
+                        <CheckBox Margin="0,0,0,12" Content="Выполнение двигательной программы левой рукой производится самостоятельно, но зафиксированы нарушение порядка движений, а также векторный разворот ладони в положении «ребро». " x:Name="cb_Block4_T3"   IsChecked="True"></CheckBox>
+                        <CheckBox Margin="0,0,0,12" Content="При выполнении пробы на реакцию выбора на слух допускает сбои и уподобления при ломке стереотипа, при зрительном предъявлении отмечен единичный сбой. " x:Name="cb_Block4_T4"   IsChecked="True"></CheckBox>
+                        <CheckBox Margin="0,0,0,12" Content="В графической пробе демонстрирует тенденцию к макрографии, элементарные персеверации, сдвиг строки вверх. " x:Name="cb_Block4_T5"   IsChecked="True"></CheckBox>
+                        <CheckBox Margin="0,0,0,12" Content="В пробе на оральный праксис наблюдалась вялость выполнения некоторых динамических проб. " x:Name="cb_Block4_T6"   IsChecked="True"></CheckBox>
+                        <CheckBox Margin="0,0,0,12" Content="В пробе на праксис позы пальцев продемонстрировал единичную структурно-топологическую ошибку в правой руке. " x:Name="cb_Block4_T7"   IsChecked="True"></CheckBox>
+                        <CheckBox Margin="0,0,0,12" Content="В пробе на воспроизведение ритмов по инструкции трудностей не демонстрировал. " x:Name="cb_Block4_T8"   IsChecked="True"></CheckBox>
+                    </StackPanel>
+
+
+                </TabItem >
+                <TabItem x:Name="tab_Block5">
+                    <TabItem.Header>
+                        <TextBlock Width="100" TextWrapping="WrapWithOverflow" TextAlignment="Center">Исследование гностической сферы</TextBlock>
+                    </TabItem.Header>
+                    <StackPanel Margin="12" x:Name="StackPanel_b5">
+                        <CheckBox Margin="0,0,0,12" Content="При выполнении проб на зрительное восприятие гностических трудностей при опознавании реальных картинок не наблюдалось, тогда как опознавание низкочастотных слов вызвало трудности. " x:Name="cb_Block5_T1"   IsChecked="True"></CheckBox>
+                        <CheckBox Margin="0,0,0,12" Content="В пробе на воспроизведение ритмов по образцу зафиксирована переоценка и недооценка стимулов, отсутствие пауз, искажение ритмического рисунка.  " x:Name="cb_Block5_T2"   IsChecked="True"></CheckBox>
+                        <CheckBox Margin="0,0,0,12" Content="В пробах на оценку ритмов зафиксированы множественные ошибки. " x:Name="cb_Block5_T3"   IsChecked="True"></CheckBox>
+                        <CheckBox Margin="0,0,0,12" Content="Проба на тактильный гнозис выполнена без ошибок. " x:Name="cb_Block5_T4"   IsChecked="True"></CheckBox>
+                        <CheckBox Margin="0,0,0,12" Content="При выполнении пробы на пространственный гнозис (копирование фигур) отмечены метрические неточности, хаотичное расположение фигур. " x:Name="cb_Block5_T5"   IsChecked="True"></CheckBox>
+                    </StackPanel>
+                    
+                    
+                </TabItem >
+                <TabItem x:Name="tab_Block6">
+                    <TabItem.Header>
+                        <TextBlock Width="100" TextWrapping="WrapWithOverflow" TextAlignment="Center">Исследование мнестических функций</TextBlock>
+                    </TabItem.Header>
+                    <StackPanel Margin="12" x:Name="StackPanel_b6">
+                        <CheckBox Margin="0,0,0,12" Content="Объем слухоречевой памяти снижен, кривая запоминания 4-4-4-5-6 (всего для запоминания было предъявлено 7 слов); также при выполнении пробы демонстрирует вербальные парафазии. " x:Name="cb_Block6_T1"   IsChecked="True"></CheckBox>
+                        <CheckBox Margin="0,0,0,12" Content="Пробу на двигательную память выполняет с ошибками. " x:Name="cb_Block6_T2"   IsChecked="True"></CheckBox>
+                        <CheckBox Margin="0,0,0,12" Content="Объём зрительной памяти в норме. " x:Name="cb_Block6_T3"   IsChecked="True"></CheckBox>
+                        
+                    </StackPanel>
+                    
+                    
+                </TabItem>
+
+                <TabItem x:Name="tab_Block7">
+                    <TabItem.Header>
+                        <TextBlock Width="100" TextWrapping="WrapWithOverflow" TextAlignment="Center">Исследования речевой сферы и мышления</TextBlock>
+                    </TabItem.Header>
+                    <StackPanel Margin="12" x:Name="StackPanel_b7">
+                        <TextBlock Text="Исследования речевой сферы:" Margin="0,0,0,6" FontWeight="Bold" />
+                        <CheckBox Margin="0,0,0,12" Content="Экспрессивная речь . Самостоятельный пересказ текста со слов нейропсихолога выполняет. " x:Name="cb_Block7_T1"   IsChecked="True"></CheckBox>
+                        <CheckBox Margin="0,0,0,12" Content="Понимание предложных конструкций затруднено; при понимании логико-грамматических конструкций ошибок не зафиксировано. " x:Name="cb_Block7_T2"   IsChecked="True"></CheckBox>
+                        <CheckBox Margin="0,0,0,12" Content="Фонематический слух сформирован. " x:Name="cb_Block7_T3"   IsChecked="True"></CheckBox>
+                        <TextBlock Text="Мышление:" Margin="0,12,0,6" FontWeight="Bold" />
+                        <CheckBox Margin="0,0,0,12" Content="Смысл рассказа понимает; способность делать выводы сформирована. " x:Name="cb_Block7_T4"   IsChecked="True"></CheckBox>
+                        <CheckBox Margin="0,0,0,12" Content="Смысл сюжетной картинки и серии картинок понимает верно. " x:Name="cb_Block7_T5"   IsChecked="True"></CheckBox>
+                        <CheckBox Margin="0,0,0,12" Content="В пробах на мышление «4-й лишний» (анализ, обобщение) трудностей не отмечено. " x:Name="cb_Block7_T6"   IsChecked="True"></CheckBox>
+                        <CheckBox Margin="0,0,0,12" Content="В пробах «Аналогии» отмечены трудности во всех предъявляемых заданиях. " x:Name="cb_Block7_T7"   IsChecked="True"></CheckBox>
+                        <CheckBox Margin="0,0,0,12" Content="Счётные навыки сформированы по возрасту. " x:Name="cb_Block7_T8"   IsChecked="True"></CheckBox>
+                        
+                    </StackPanel>
+
+
+                </TabItem>
+
+                <TabItem x:Name="tab_Block8">
+                    <TabItem.Header>
+                        <TextBlock Width="70" TextWrapping="WrapWithOverflow" TextAlignment="Center">Выводы</TextBlock>
+                    </TabItem.Header>
+                    <StackPanel Margin="12" x:Name="StackPanel_b8">
+                        <TextBlock Text="Таким образом, нейропсихологическое обследование позволяет  сделать следующие выводы:" Margin="0,12,0,6" FontWeight="Bold" />
+                        <TextBox x:Name="tb_Block8_T1" AcceptsReturn="True" HorizontalAlignment="Stretch" Height="400" TextWrapping="Wrap" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                            
+                                
+                        
+                                
+                            
+                        </TextBox>
+                        
+                        
+                    </StackPanel>
+                </TabItem>
+
+                <TabItem x:Name="tab_Block9">
+                    <TabItem.Header>
+                        <TextBlock Width="100" TextWrapping="WrapWithOverflow" TextAlignment="Center">Рекомендации</TextBlock>
+                    </TabItem.Header>
+                    <StackPanel Margin="12" x:Name="StackPanel_b9">
+                        <CheckBox Margin="0,0,0,12" x:Name="cb_Block9_T1"   IsChecked="True" Content="Консультация невролога"></CheckBox>
+                        <CheckBox Margin="0,0,0,12" x:Name="cb_Block9_T2"   IsChecked="True" Content="Нейропсихологические занятия, направленные на развитие дефицитарных функций по результатам диагностики."></CheckBox>
+                        <CheckBox Margin="0,0,0,12" x:Name="cb_Block9_T3"   IsChecked="True" Content="Различные игры и занятия, связанные с ритмами (работа с музыкальными инструментами, марширование под музыку, рифмовки, заучивание стихов с отхлопыванием ритма)."></CheckBox>
+                        <CheckBox Margin="0,0,0,12" x:Name="cb_Block9_T4"   IsChecked="True" Content="Соблюдение строгого режима дня."></CheckBox>
+                        <CheckBox Margin="0,0,0,12" x:Name="cb_Block9_T5"   IsChecked="True" Content="Массаж воротниковой зоны (после консультации врача), достаточное времяпрепровождение на свежем воздухе, контрастный душ по утрам."></CheckBox>
+                        <CheckBox Margin="0,0,0,12" x:Name="cb_Block9_T6"   IsChecked="True" Content="Введение в домашний обиход чек-листов и визуального расписания с целью формирования самоконтроля и планирования своих действий."></CheckBox>
+                        <CheckBox Margin="0,0,0,12" x:Name="cb_Block9_T7"   IsChecked="True" Content="С началом обучения в школе обязательное включение динамических пауз каждые 10-15 минут выполнения домашних заданий. "></CheckBox>
+                        <CheckBox Margin="0,0,0,12" x:Name="cb_Block9_T8"   IsChecked="True" Content="Возрастно-психологическое консультирование родителей."></CheckBox>
+
+                    </StackPanel>
+
+
+                </TabItem>
+
+            </TabControl>
+            
+        </ui:SimpleStackPanel>
+        <ui:SimpleStackPanel Margin="12" Spacing="24" Grid.Row="1" VerticalAlignment="Center">
+
+            <Button  Content="Создать заключение в MS Word" x:Name="btn_CreateWord" Click="btn_CreateWord_Click" Width="400" VerticalAlignment="Center" HorizontalAlignment="Center"  >
+                
+            </Button>
+        </ui:SimpleStackPanel>
+    </Grid>
+</Window>
