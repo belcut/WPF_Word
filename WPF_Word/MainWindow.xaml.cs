@@ -32,14 +32,14 @@ namespace WPF_Word
         public MainWindow()
         {
             InitializeComponent();
-            tb_Block8_T1.Text = "На фоне хорошо развитого зрительного восприятия, мыслительных операций, выявлены следующие трудности:\r\n- снижение нейродинамических характеристик, \r\n- несформированность функции программирования и контроля, \r\n- несформированность мнестических, гностических и пространственных функций,\r\n- а также недостаточность межполушарного взаимодействия и двигательной сферы.\r\n";
+            tb_Block9_T1.Text = "На фоне хорошо развитого зрительного восприятия, мыслительных операций, выявлены следующие трудности:\r\n- снижение нейродинамических характеристик, \r\n- несформированность функции программирования и контроля, \r\n- несформированность мнестических, гностических и пространственных функций,\r\n- а также недостаточность межполушарного взаимодействия и двигательной сферы.\r\n";
         }
 
         private void btn_CreateWord_Click(object sender, RoutedEventArgs e)
         {
             // Заполняем текст по разделам___________________________
             
-            string b1_Text, b2_Text, b3_Text, b4_Text, b5_Text, b6_Text, b71_Text, b72_Text, b8_Text, b9_Text;
+            string b1_Text, b2_Text, b3_Text, b4_Text, b5_Text, b6_Text, b7_Text, b8_Text, b9_Text, b10_Text;
 
             // Блок 1
             b1_Text = $"ФИО: {tb_FIO.Text} \r\nВозраст: {tb_Age.Text} \r\n" +
@@ -107,14 +107,39 @@ namespace WPF_Word
                 }
             }
 
-            // Блок 9
-            var Checkboxes_b9 = StackPanel_b9.Children.OfType<System.Windows.Controls.CheckBox>().ToList();
-            b9_Text = "";
-            foreach (System.Windows.Controls.CheckBox box in Checkboxes_b9)
+            // Блок 7
+            var Checkboxes_b7 = StackPanel_b7.Children.OfType<System.Windows.Controls.CheckBox>().ToList();
+            b7_Text = "";
+            foreach (System.Windows.Controls.CheckBox box in Checkboxes_b7)
             {
                 if (box.IsChecked == true)
                 {
-                    b9_Text += box.Content + "\n";
+                    b7_Text += box.Content + "\n";
+                }
+            }
+
+            // Блок 8
+            var Checkboxes_b8 = StackPanel_b8.Children.OfType<System.Windows.Controls.CheckBox>().ToList();
+            b8_Text = "";
+            foreach (System.Windows.Controls.CheckBox box in Checkboxes_b8)
+            {
+                if (box.IsChecked == true)
+                {
+                    b8_Text += box.Content + "\n";
+                }
+            }
+
+            // Блок 9
+            b9_Text = tb_Block9_T1.Text;
+
+            // Блок 10
+            var Checkboxes_b10 = StackPanel_b10.Children.OfType<System.Windows.Controls.CheckBox>().ToList();
+            b10_Text = "";
+            foreach (System.Windows.Controls.CheckBox box in Checkboxes_b10)
+            {
+                if (box.IsChecked == true)
+                {
+                    b10_Text += box.Content + "\n";
                 }
             }
 
@@ -163,8 +188,20 @@ namespace WPF_Word
             Word.Range wordRange6 = oDoc.Bookmarks.get_Item("b6").Range;
             wordRange6.Text = b6_Text;
 
+            Word.Range wordRange7 = oDoc.Bookmarks.get_Item("b7").Range;
+            wordRange7.Text = b7_Text;
+
+            Word.Range wordRange8 = oDoc.Bookmarks.get_Item("b8").Range;
+            wordRange8.Text = b8_Text;
+
             Word.Range wordRange9 = oDoc.Bookmarks.get_Item("b9").Range;
             wordRange9.Text = b9_Text;
+
+            Word.Range wordRange10 = oDoc.Bookmarks.get_Item("b10").Range;
+            wordRange10.Text = b10_Text;
+
+            Word.Range wordRange11 = oDoc.Bookmarks.get_Item("Date").Range;
+            wordRange11.Text = tb_ResumeDate.Text;
 
         }
 
