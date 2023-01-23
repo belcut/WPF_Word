@@ -156,14 +156,17 @@ namespace WPF_Word
             try
             {
                 oDoc = oWord.Documents.Add(ref templatePathObj, ref oMissing, ref oMissing, ref oMissing);
+               
             }
-            catch (Exception error)
+            catch (Exception err)
             {
                 //oDoc.Close(ref falseObj, ref oMissing, ref oMissing);
                 oWord.Quit(ref oMissing, ref oMissing, ref oMissing);
                 oDoc = null;
                 oWord = null;
-                throw error;
+                MessageBox.Show("Ошибка работы с шаблоном MS Word: \r\n\r\n" + err.ToString(),"Ошибка!");
+                
+                throw err;
             }
             
             oWord.Visible = true;
