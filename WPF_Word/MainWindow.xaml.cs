@@ -146,7 +146,7 @@ namespace WPF_Word
             // Работа с Word__________________________________________ 
 
             object oMissing = Missing.Value;
-            object templatePathObj = Environment.CurrentDirectory + "\\Template.dotm" ;
+            object templatePathObj = Environment.CurrentDirectory + "\\Template.dotx" ;
             object falseObj = false;
             
             Word._Application oWord;
