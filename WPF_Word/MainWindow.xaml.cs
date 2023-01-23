@@ -156,55 +156,54 @@ namespace WPF_Word
             try
             {
                 oDoc = oWord.Documents.Add(ref templatePathObj, ref oMissing, ref oMissing, ref oMissing);
-               
+                oWord.Visible = true;
+
+                //Заполняем документ по закладкам
+
+                Word.Range wrdRng1 = oDoc.Bookmarks.get_Item("b1").Range;
+                wrdRng1.Text = b1_Text;
+
+                Word.Range wordRange2 = oDoc.Bookmarks.get_Item("b2").Range;
+                wordRange2.Text = b2_Text;
+
+                Word.Range wordRange3 = oDoc.Bookmarks.get_Item("b3").Range;
+                wordRange3.Text = b3_Text;
+
+                Word.Range wordRange4 = oDoc.Bookmarks.get_Item("b4").Range;
+                wordRange4.Text = b4_Text;
+
+                Word.Range wordRange5 = oDoc.Bookmarks.get_Item("b5").Range;
+                wordRange5.Text = b5_Text;
+
+                Word.Range wordRange6 = oDoc.Bookmarks.get_Item("b6").Range;
+                wordRange6.Text = b6_Text;
+
+                Word.Range wordRange7 = oDoc.Bookmarks.get_Item("b7").Range;
+                wordRange7.Text = b7_Text;
+
+                Word.Range wordRange8 = oDoc.Bookmarks.get_Item("b8").Range;
+                wordRange8.Text = b8_Text;
+
+                Word.Range wordRange9 = oDoc.Bookmarks.get_Item("b9").Range;
+                wordRange9.Text = b9_Text;
+
+                Word.Range wordRange10 = oDoc.Bookmarks.get_Item("b10").Range;
+                wordRange10.Text = b10_Text;
+
+                Word.Range wordRange11 = oDoc.Bookmarks.get_Item("Date").Range;
+                wordRange11.Text = tb_ResumeDate.Text;
+
             }
+
             catch (Exception err)
             {
-                //oDoc.Close(ref falseObj, ref oMissing, ref oMissing);
+                
                 oWord.Quit(ref oMissing, ref oMissing, ref oMissing);
                 oDoc = null;
                 oWord = null;
-                MessageBox.Show("Ошибка работы с шаблоном MS Word: \r\n\r\n" + err.ToString(),"Ошибка!");
-                
+                MessageBox.Show("Ошибка работы с шаблоном MS Word: \r\n\r\n" + err.ToString(), "Ошибка!");
                 throw err;
             }
-            
-            oWord.Visible = true;
-
-            //Заполняем документ по закладкам
-              
-            Word.Range wrdRng1 = oDoc.Bookmarks.get_Item("b1").Range;
-            wrdRng1.Text = b1_Text;
-
-            Word.Range wordRange2 = oDoc.Bookmarks.get_Item("b2").Range;
-            wordRange2.Text = b2_Text;
-
-            Word.Range wordRange3 = oDoc.Bookmarks.get_Item("b3").Range;
-            wordRange3.Text = b3_Text;
-
-            Word.Range wordRange4 = oDoc.Bookmarks.get_Item("b4").Range;
-            wordRange4.Text = b4_Text;
-
-            Word.Range wordRange5 = oDoc.Bookmarks.get_Item("b5").Range;
-            wordRange5.Text = b5_Text;
-
-            Word.Range wordRange6 = oDoc.Bookmarks.get_Item("b6").Range;
-            wordRange6.Text = b6_Text;
-
-            Word.Range wordRange7 = oDoc.Bookmarks.get_Item("b7").Range;
-            wordRange7.Text = b7_Text;
-
-            Word.Range wordRange8 = oDoc.Bookmarks.get_Item("b8").Range;
-            wordRange8.Text = b8_Text;
-
-            Word.Range wordRange9 = oDoc.Bookmarks.get_Item("b9").Range;
-            wordRange9.Text = b9_Text;
-
-            Word.Range wordRange10 = oDoc.Bookmarks.get_Item("b10").Range;
-            wordRange10.Text = b10_Text;
-
-            Word.Range wordRange11 = oDoc.Bookmarks.get_Item("Date").Range;
-            wordRange11.Text = tb_ResumeDate.Text;
 
         }
 
