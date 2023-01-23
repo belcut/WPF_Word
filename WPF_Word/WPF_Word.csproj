@@ -25,6 +25,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Interop.Microsoft.Office.Interop.Word.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Template.dotm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
