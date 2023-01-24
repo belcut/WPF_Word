@@ -202,7 +202,7 @@ namespace WPF_Word
                 oDoc = null;
                 oWord = null;
                 MessageBox.Show("Ошибка работы с шаблоном MS Word: \r\n\r\n" + err.ToString(), "Ошибка!");
-                throw err;
+                throw;
             }
 
         }
