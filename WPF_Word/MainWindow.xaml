@@ -8,9 +8,9 @@
         Title="WordWordWord!" Height="600" Width="1200"  MinHeight="700" MinWidth="1300"
         xmlns:ui="http://schemas.modernwpf.com/2019"
         
-    ui:WindowHelper.UseModernWindowStyle="True">
+    ui:WindowHelper.UseModernWindowStyle="True" Loaded="Window_Loaded" Closing="Window_Closing">
 
-    <Grid>
+    <Grid x:Name="mainGrid">
         <Grid.RowDefinitions>
             <RowDefinition Height="600"/>
             <RowDefinition/>
@@ -24,16 +24,16 @@
                     <ui:SimpleStackPanel Margin="12" Spacing="0"  >
                         <ui:SimpleStackPanel Margin="12" Spacing="24" Orientation="Horizontal" VerticalAlignment="Center">
                             <TextBlock Text="Фамилия, Имя, Отчество:" VerticalAlignment="Center"/>
-                            <TextBox x:Name="tb_FIO" Text="Иванов Иван Иванович" HorizontalAlignment="Stretch" Width="300"/>
+                            <TextBox x:Name="tb_FIO" Text="" HorizontalAlignment="Stretch" Width="300"/>
                             <TextBlock  Text="Возраст:" VerticalAlignment="Center"/>
-                            <TextBox x:Name="tb_Age" Text="6 лет" HorizontalAlignment="Stretch" Width="300"/>
+                            <TextBox x:Name="tb_Age" Text="" HorizontalAlignment="Stretch" Width="300"/>
 
                         </ui:SimpleStackPanel>
                         <ui:SimpleStackPanel Margin="12" Spacing="24" Orientation="Horizontal" VerticalAlignment="Center">
                             <TextBlock Text="Дата рождения:" VerticalAlignment="Center"/>
-                            <TextBox x:Name="tb_BirthDate" Text="01.10.2012" HorizontalAlignment="Stretch" Width="200"/>
+                            <TextBox x:Name="tb_BirthDate" Text="" HorizontalAlignment="Stretch" Width="200"/>
                             <TextBlock Text="Дата обследования:" VerticalAlignment="Center"/>
-                            <TextBox x:Name="tb_ResumeDate" Text="19.01.2022" HorizontalAlignment="Stretch" Width="200"/>
+                            <TextBox x:Name="tb_ResumeDate" Text="" HorizontalAlignment="Stretch" Width="200"/>
 
                         </ui:SimpleStackPanel>
                         <ui:SimpleStackPanel Margin="12" Spacing="10" Orientation="Vertical" VerticalAlignment="Center">
@@ -72,42 +72,337 @@
                     <TabItem.Header>
                         <TextBlock Width="120" TextWrapping="WrapWithOverflow" TextAlignment="Center">Данные нейро- психологического обследования</TextBlock>
                     </TabItem.Header>
-                    <StackPanel Margin="12" x:Name="StackPanel_b2">
-                        <CheckBox Margin="0,0,0,12" Content="... неохотно идет на контакт с нейропсихологом, на вопросы отвечает не развёрнуто. " x:Name="cb_Block2_T1"   IsChecked="True"></CheckBox>
-                        <CheckBox Margin="0,0,0,12" Content="Эмоциональный фон нейтральный, заинтересованность в выполнении заданий не демонстрирует. " x:Name="cb_Block2_T2"   IsChecked="True"></CheckBox>
-                        <CheckBox Margin="0,0,0,12" Content="Инструкцию понимает не с первого раза. Сфера общих знаний сформирована. " x:Name="cb_Block2_T3"   IsChecked="True"></CheckBox>
-                        <CheckBox Margin="0,0,0,12" Content="Во времени и месте ориентирован. " x:Name="cb_Block2_T4"   IsChecked="True"></CheckBox>
-                        <CheckBox Margin="0,0,0,12" Content="Правша. " x:Name="cb_Block2_T5"   IsChecked="True"></CheckBox>
-                        <CheckBox Margin="0,0,0,12" Content="Левша. " x:Name="cb_Block2_T6"   IsChecked="False"></CheckBox>
-                        <CheckBox Margin="0,0,0,12" Content="Объективно: " x:Name="cb_Block2_T7"   IsChecked="True"></CheckBox>
+                    <StackPanel Margin="12"  x:Name="StackPanel_b2">
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions >
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block2_T1" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block2_T1" Text="" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
+
+                        </Grid>
+
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block2_T2" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block2_T2" Text="" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block2_T3" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block2_T3" Text="" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block2_T4" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block2_T4" Text="" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block2_T5" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block2_T5" Text="" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block2_T6" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block2_T6" Text="" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block2_T7" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block2_T7" Text=""  VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block2_T8" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block2_T8" Text="" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" />
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block2_T9" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block2_T9" Text=""  VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" />
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block2_T10" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block2_T10" Text=""  VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" />
+
+                        </Grid>
+
+
+
                     </StackPanel>
                 </TabItem>
                 <TabItem x:Name="tab_Block3">
                     <TabItem.Header>
                         <TextBlock Width="100" TextWrapping="WrapWithOverflow" TextAlignment="Center">Работо- способность и внимание</TextBlock>
                     </TabItem.Header>
-                    <StackPanel Margin="12" x:Name="StackPanel_b3">
-                        <CheckBox Margin="0,0,0,12" Content="Умственная работоспособность несколько снижена, отмечена тенденция к истощению. " x:Name="cb_Block3_T1"   IsChecked="True"></CheckBox>
-                        <CheckBox Margin="0,0,0,12" Content="Время выполнения пробы «Личики» 1 мин. 28 сек., 1 мин. 34 сек., 1 мин. 40 сек. " x:Name="cb_Block3_T2"   IsChecked="True"></CheckBox>
-                        <CheckBox Margin="0,0,0,12" Content="Количество ошибок в пределах нормы. " x:Name="cb_Block3_T3"   IsChecked="True"></CheckBox>
-                        
+                    <StackPanel Margin="12"  x:Name="StackPanel_b3">
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions >
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block3_T1" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block3_T1" Text="" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
+
+                        </Grid>
+
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block3_T2" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block3_T2" Text="" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block3_T3" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block3_T3" Text="" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block3_T4" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block3_T4" Text="" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block3_T5" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block3_T5" Text="" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block3_T6" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block3_T6" Text="" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block3_T7" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block3_T7" Text=""  VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block3_T8" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block3_T8" Text="" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" />
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block3_T9" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block3_T9" Text=""  VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" />
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block3_T10" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block3_T10" Text=""  VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" />
+
+                        </Grid>
+
+
+
                     </StackPanel>
-                    
+
+
                 </TabItem>
                 <TabItem x:Name="tab_Block4">
                     <TabItem.Header>
                         <TextBlock Width="100" TextWrapping="WrapWithOverflow" TextAlignment="Center">Исследование движений и действий</TextBlock>
                     </TabItem.Header>
-                    <StackPanel Margin="12" x:Name="StackPanel_b4">
-                        <CheckBox Margin="0,0,0,12" Content="При выполнении пробы на реципрокную координацию наблюдались сбои в обеих руках. При совместном выполнении с нейропсихологом Николай справляется с пробой успешнее. " x:Name="cb_Block4_T1"   IsChecked="True"></CheckBox>
-                        <CheckBox Margin="0,0,0,12" Content="Самостоятельное выполнение двигательной пробы на динамический праксис с правой руки недоступно, совместно со специалистом выполняет пробу неуверенно, наблюдается тенденция к нарушению порядка движений. " x:Name="cb_Block4_T2"   IsChecked="True"></CheckBox>
-                        <CheckBox Margin="0,0,0,12" Content="Выполнение двигательной программы левой рукой производится самостоятельно, но зафиксированы нарушение порядка движений, а также векторный разворот ладони в положении «ребро». " x:Name="cb_Block4_T3"   IsChecked="True"></CheckBox>
-                        <CheckBox Margin="0,0,0,12" Content="При выполнении пробы на реакцию выбора на слух допускает сбои и уподобления при ломке стереотипа, при зрительном предъявлении отмечен единичный сбой. " x:Name="cb_Block4_T4"   IsChecked="True"></CheckBox>
-                        <CheckBox Margin="0,0,0,12" Content="В графической пробе демонстрирует тенденцию к макрографии, элементарные персеверации, сдвиг строки вверх. " x:Name="cb_Block4_T5"   IsChecked="True"></CheckBox>
-                        <CheckBox Margin="0,0,0,12" Content="В пробе на оральный праксис наблюдалась вялость выполнения некоторых динамических проб. " x:Name="cb_Block4_T6"   IsChecked="True"></CheckBox>
-                        <CheckBox Margin="0,0,0,12" Content="В пробе на праксис позы пальцев продемонстрировал единичную структурно-топологическую ошибку в правой руке. " x:Name="cb_Block4_T7"   IsChecked="True"></CheckBox>
-                        <CheckBox Margin="0,0,0,12" Content="В пробе на воспроизведение ритмов по инструкции трудностей не демонстрировал. " x:Name="cb_Block4_T8"   IsChecked="True"></CheckBox>
+                    <StackPanel Margin="12"  x:Name="StackPanel_b4">
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions >
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block4_T1" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block4_T1" Text="" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
+
+                        </Grid>
+
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block4_T2" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block4_T2" Text="" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block4_T3" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block4_T3" Text="" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block4_T4" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block4_T4" Text="" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block4_T5" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block4_T5" Text="" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block4_T6" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block4_T6" Text="" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block4_T7" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block4_T7" Text=""  VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block4_T8" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block4_T8" Text="" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" />
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block4_T9" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block4_T9" Text=""  VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" />
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block4_T10" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block4_T10" Text=""  VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" />
+
+                        </Grid>
+
+
+
                     </StackPanel>
+
 
 
                 </TabItem >
@@ -115,42 +410,342 @@
                     <TabItem.Header>
                         <TextBlock Width="100" TextWrapping="WrapWithOverflow" TextAlignment="Center">Исследование гностической сферы</TextBlock>
                     </TabItem.Header>
-                    <StackPanel Margin="12" x:Name="StackPanel_b5">
-                        <CheckBox Margin="0,0,0,12" Content="При выполнении проб на зрительное восприятие гностических трудностей при опознавании реальных картинок не наблюдалось, тогда как опознавание низкочастотных слов вызвало трудности. " x:Name="cb_Block5_T1"   IsChecked="True"></CheckBox>
-                        <CheckBox Margin="0,0,0,12" Content="В пробе на воспроизведение ритмов по образцу зафиксирована переоценка и недооценка стимулов, отсутствие пауз, искажение ритмического рисунка.  " x:Name="cb_Block5_T2"   IsChecked="True"></CheckBox>
-                        <CheckBox Margin="0,0,0,12" Content="В пробах на оценку ритмов зафиксированы множественные ошибки. " x:Name="cb_Block5_T3"   IsChecked="True"></CheckBox>
-                        <CheckBox Margin="0,0,0,12" Content="Проба на тактильный гнозис выполнена без ошибок. " x:Name="cb_Block5_T4"   IsChecked="True"></CheckBox>
-                        <CheckBox Margin="0,0,0,12" Content="При выполнении пробы на пространственный гнозис (копирование фигур) отмечены метрические неточности, хаотичное расположение фигур. " x:Name="cb_Block5_T5"   IsChecked="True"></CheckBox>
+                    <StackPanel Margin="12"  x:Name="StackPanel_b5">
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions >
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block5_T1" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block5_T1" Text="" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
+
+                        </Grid>
+
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block5_T2" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block5_T2" Text="" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block5_T3" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block5_T3" Text="" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block5_T4" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block5_T4" Text="" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block5_T5" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block5_T5" Text="" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block5_T6" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block5_T6" Text="" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block5_T7" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block5_T7" Text=""  VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block5_T8" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block5_T8" Text="" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" />
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block5_T9" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block5_T9" Text=""  VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" />
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block5_T10" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block5_T10" Text=""  VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" />
+
+                        </Grid>
+
+
+
                     </StackPanel>
-                    
-                    
+
+
+
                 </TabItem >
                 <TabItem x:Name="tab_Block6">
                     <TabItem.Header>
                         <TextBlock Width="100" TextWrapping="WrapWithOverflow" TextAlignment="Center">Исследование мнестических функций</TextBlock>
                     </TabItem.Header>
-                    <StackPanel Margin="12" x:Name="StackPanel_b6">
-                        <CheckBox Margin="0,0,0,12" Content="Объем слухоречевой памяти снижен, кривая запоминания 4-4-4-5-6 (всего для запоминания было предъявлено 7 слов); также при выполнении пробы демонстрирует вербальные парафазии. " x:Name="cb_Block6_T1"   IsChecked="True"></CheckBox>
-                        <CheckBox Margin="0,0,0,12" Content="Пробу на двигательную память выполняет с ошибками. " x:Name="cb_Block6_T2"   IsChecked="True"></CheckBox>
-                        <CheckBox Margin="0,0,0,12" Content="Объём зрительной памяти в норме. " x:Name="cb_Block6_T3"   IsChecked="True"></CheckBox>
-                        
+                    <StackPanel Margin="12"  x:Name="StackPanel_b6">
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions >
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block6_T1" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block6_T1" Text="" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
+
+                        </Grid>
+
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block6_T2" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block6_T2" Text="" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block6_T3" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block6_T3" Text="" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block6_T4" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block6_T4" Text="" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block6_T5" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block6_T5" Text="" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block6_T6" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block6_T6" Text="" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block6_T7" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block6_T7" Text=""  VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block6_T8" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block6_T8" Text="" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" />
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block6_T9" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block6_T9" Text=""  VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" />
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block6_T10" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block6_T10" Text=""  VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" />
+
+                        </Grid>
+
+
+
                     </StackPanel>
-                    
-                    
+
+
+
                 </TabItem>
 
                 <TabItem x:Name="tab_Block7">
                     <TabItem.Header>
                         <TextBlock Width="90" TextWrapping="WrapWithOverflow" TextAlignment="Center">Исследования речевой сферы</TextBlock>
                     </TabItem.Header>
-                    <StackPanel Margin="12" x:Name="StackPanel_b7">
-                        
-                        <CheckBox Margin="0,0,0,12" Content="Экспрессивная речь . Самостоятельный пересказ текста со слов нейропсихолога выполняет. " x:Name="cb_Block7_T1"   IsChecked="True"></CheckBox>
-                        <CheckBox Margin="0,0,0,12" Content="Понимание предложных конструкций затруднено; при понимании логико-грамматических конструкций ошибок не зафиксировано. " x:Name="cb_Block7_T2"   IsChecked="True"></CheckBox>
-                        <CheckBox Margin="0,0,0,12" Content="Фонематический слух сформирован. " x:Name="cb_Block7_T3"   IsChecked="True"></CheckBox>
-                        
-                        
+                    <StackPanel Margin="12"  x:Name="StackPanel_b7">
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions >
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block7_T1" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block7_T1" Text="" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
+
+                        </Grid>
+
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block7_T2" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block7_T2" Text="" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block7_T3" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block7_T3" Text="" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block7_T4" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block7_T4" Text="" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block7_T5" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block7_T5" Text="" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block7_T6" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block7_T6" Text="" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block7_T7" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block7_T7" Text=""  VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block7_T8" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block7_T8" Text="" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" />
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block7_T9" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block7_T9" Text=""  VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" />
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block7_T10" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block7_T10" Text=""  VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" />
+
+                        </Grid>
+
+
+
                     </StackPanel>
+
 
 
                 </TabItem>
@@ -158,54 +753,249 @@
                     <TabItem.Header>
                         <TextBlock Width="90" TextWrapping="WrapWithOverflow" TextAlignment="Center">Исследования мышления</TextBlock>
                     </TabItem.Header>
-                    <StackPanel Margin="12" x:Name="StackPanel_b8">
+                    <StackPanel Margin="12"  x:Name="StackPanel_b8">
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions >
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block8_T1" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block8_T1" Text="" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
+
+                        </Grid>
+
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block8_T2" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block8_T2" Text="" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block8_T3" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block8_T3" Text="" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block8_T4" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block8_T4" Text="" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block8_T5" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block8_T5" Text="" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block8_T6" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block8_T6" Text="" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block8_T7" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block8_T7" Text=""  VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block8_T8" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block8_T8" Text="" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" />
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block8_T9" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block8_T9" Text=""  VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" />
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block8_T10" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block8_T10" Text=""  VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" />
+
+                        </Grid>
 
 
-                        <CheckBox Margin="0,0,0,12" Content="Смысл рассказа понимает; способность делать выводы сформирована. " x:Name="cb_Block7_T4"   IsChecked="True"></CheckBox>
-                        <CheckBox Margin="0,0,0,12" Content="Смысл сюжетной картинки и серии картинок понимает верно. " x:Name="cb_Block7_T5"   IsChecked="True"></CheckBox>
-                        <CheckBox Margin="0,0,0,12" Content="В пробах на мышление «4-й лишний» (анализ, обобщение) трудностей не отмечено. " x:Name="cb_Block7_T6"   IsChecked="True"></CheckBox>
-                        <CheckBox Margin="0,0,0,12" Content="В пробах «Аналогии» отмечены трудности во всех предъявляемых заданиях. " x:Name="cb_Block7_T7"   IsChecked="True"></CheckBox>
-                        <CheckBox Margin="0,0,0,12" Content="Счётные навыки сформированы по возрасту. " x:Name="cb_Block7_T8"   IsChecked="True"></CheckBox>
 
                     </StackPanel>
-                </TabItem>
 
-                <TabItem x:Name="tab_Block10">
-                    <TabItem.Header>
-                        <TextBlock Width="100" TextWrapping="WrapWithOverflow" TextAlignment="Center">Рекомендации</TextBlock>
-                    </TabItem.Header>
-                    <StackPanel Margin="12" x:Name="StackPanel_b10">
-                        <CheckBox Margin="0,0,0,12" x:Name="cb_Block9_T1"   IsChecked="True" Content="Консультация невролога"></CheckBox>
-                        <CheckBox Margin="0,0,0,12" x:Name="cb_Block9_T2"   IsChecked="True" Content="Нейропсихологические занятия, направленные на развитие дефицитарных функций по результатам диагностики."></CheckBox>
-                        <CheckBox Margin="0,0,0,12" x:Name="cb_Block9_T3"   IsChecked="True" Content="Различные игры и занятия, связанные с ритмами (работа с музыкальными инструментами, марширование под музыку, рифмовки, заучивание стихов с отхлопыванием ритма)."></CheckBox>
-                        <CheckBox Margin="0,0,0,12" x:Name="cb_Block9_T4"   IsChecked="True" Content="Соблюдение строгого режима дня."></CheckBox>
-                        <CheckBox Margin="0,0,0,12" x:Name="cb_Block9_T5"   IsChecked="True" Content="Массаж воротниковой зоны (после консультации врача), достаточное времяпрепровождение на свежем воздухе, контрастный душ по утрам."></CheckBox>
-                        <CheckBox Margin="0,0,0,12" x:Name="cb_Block9_T6"   IsChecked="True" Content="Введение в домашний обиход чек-листов и визуального расписания с целью формирования самоконтроля и планирования своих действий."></CheckBox>
-                        <CheckBox Margin="0,0,0,12" x:Name="cb_Block9_T7"   IsChecked="True" Content="С началом обучения в школе обязательное включение динамических пауз каждые 10-15 минут выполнения домашних заданий. "></CheckBox>
-                        <CheckBox Margin="0,0,0,12" x:Name="cb_Block9_T8"   IsChecked="True" Content="Возрастно-психологическое консультирование родителей."></CheckBox>
-
-                    </StackPanel>
                 </TabItem>
 
                 <TabItem x:Name="tab_Block9">
                     <TabItem.Header>
+                        <TextBlock Width="100" TextWrapping="WrapWithOverflow" TextAlignment="Center">Рекомендации</TextBlock>
+                    </TabItem.Header>
+                    <StackPanel Margin="12"  x:Name="StackPanel_b9">
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions >
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block9_T1" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block9_T1" Text="" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
+
+                        </Grid>
+
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block9_T2" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block9_T2" Text="" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block9_T3" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block9_T3" Text="" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block9_T4" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block9_T4" Text="" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block9_T5" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block9_T5" Text="" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block9_T6" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block9_T6" Text="" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block9_T7" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block9_T7" Text=""  VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block9_T8" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block9_T8" Text="" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" />
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block9_T9" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block9_T9" Text=""  VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" />
+
+                        </Grid>
+                        <Grid Margin="0,0,0,12" Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" x:Name="cb_Block9_T10" IsChecked="False" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="30" />
+                            <TextBox Grid.Column="1" x:Name="tb_Block9_T10" Text=""  VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" />
+
+                        </Grid>
+
+
+
+                    </StackPanel>
+
+                </TabItem>
+
+                <TabItem x:Name="tab_Block10">
+                    <TabItem.Header>
                         <TextBlock Width="70" TextWrapping="WrapWithOverflow" TextAlignment="Center">Выводы</TextBlock>
                     </TabItem.Header>
-                    <StackPanel Margin="12" x:Name="StackPanel_b9">
+                    <StackPanel Margin="12" x:Name="StackPanel_b10">
                         <TextBlock Text="Таким образом, нейропсихологическое обследование позволяет  сделать следующие выводы:" Margin="0,12,0,6" FontWeight="Bold" />
-                        <TextBox x:Name="tb_Block9_T1" AcceptsReturn="True" HorizontalAlignment="Stretch" Height="400" TextWrapping="Wrap" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                        <TextBox x:Name="tb_Block10_T1" AcceptsReturn="True" HorizontalAlignment="Stretch" Height="400" TextWrapping="Wrap" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
                         </TextBox>
                     </StackPanel>
                 </TabItem>
 
             </TabControl>
-            
-        </ui:SimpleStackPanel>
-        <ui:SimpleStackPanel Margin="12" Spacing="24" Grid.Row="1" VerticalAlignment="Center">
 
-            <Button  Content="Создать заключение в MS Word" x:Name="btn_CreateWord" Click="btn_CreateWord_Click" Width="400" VerticalAlignment="Center" HorizontalAlignment="Center"  >
-                
+        </ui:SimpleStackPanel>
+        <ui:SimpleStackPanel Margin="12" Spacing="24" Grid.Row="1" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
+
+            <Button  Content="Создать заключение в MS Word" x:Name="btn_CreateWord" Click="btn_CreateWord_Click" Width="400" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource AccentButtonStyle}" >
+
             </Button>
+
+            
         </ui:SimpleStackPanel>
     </Grid>
 </Window>

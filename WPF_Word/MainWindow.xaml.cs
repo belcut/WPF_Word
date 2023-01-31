@@ -20,7 +20,10 @@ using System.Windows.Shapes;
 using System.Xml.Linq;
 using static System.Net.Mime.MediaTypeNames;
 using Word = Microsoft.Office.Interop.Word;
-
+using System.Text.Json;
+using System.IO;
+using Newtonsoft.Json;
+using CheckBox = System.Windows.Controls.CheckBox;
 
 namespace WPF_Word
 {
@@ -32,14 +35,17 @@ namespace WPF_Word
         public MainWindow()
         {
             InitializeComponent();
-            tb_Block9_T1.Text = "На фоне хорошо развитого зрительного восприятия, мыслительных операций, выявлены следующие трудности:\r\n- снижение нейродинамических характеристик, \r\n- несформированность функции программирования и контроля, \r\n- несформированность мнестических, гностических и пространственных функций,\r\n- а также недостаточность межполушарного взаимодействия и двигательной сферы.\r\n";
+            tb_ResumeDate.Text = DateTime.Now.ToString("dd.MM.yyyy");
+
+
         }
 
         private void btn_CreateWord_Click(object sender, RoutedEventArgs e)
         {
             // Заполняем текст по разделам___________________________
-            
+
             string b1_Text, b2_Text, b3_Text, b4_Text, b5_Text, b6_Text, b7_Text, b8_Text, b9_Text, b10_Text;
+            int j;
 
             // Блок 1
             b1_Text = $"ФИО: {tb_FIO.Text} \r\nВозраст: {tb_Age.Text} \r\n" +
@@ -53,102 +59,188 @@ namespace WPF_Word
                 $"Социальная среда: {tb_Block1_T6.Text}";
 
             // Блок 2
-            var Checkboxes_b2 = StackPanel_b2.Children.OfType<System.Windows.Controls.CheckBox>().ToList();
+            //var Checkboxes_b2 = StackPanel_b2.Children.OfType<System.Windows.Controls.CheckBox>().ToList();
+            
+            
             b2_Text = "";
-            foreach (System.Windows.Controls.CheckBox box in Checkboxes_b2)
+            j = 2;
+
+            for (int i = 1; i <= 10; i++)
             {
-                if (box.IsChecked == true) 
+                object wantedCbNode = mainGrid.FindName($"cb_Block{j}_T{i}");
+                CheckBox wantedCb = wantedCbNode as CheckBox;
+
+                object wantedTbNode = mainGrid.FindName($"tb_Block{j}_T{i}");
+                TextBox wantedTb = wantedTbNode as TextBox;
+
+                if ((bool)wantedCb.IsChecked)
+                {
+                    b2_Text += wantedTb.Text + "\n";
+                }
+
+                
+            }
+
+
+
+
+            /*foreach (System.Windows.Controls.CheckBox box in Checkboxes_b2)
+            {
+                if (box.IsChecked == true)
                 {
                     b2_Text += box.Content + "\n";
                 }
-            }
+            }*/
 
             // Блок 3
-            var Checkboxes_b3 = StackPanel_b3.Children.OfType<System.Windows.Controls.CheckBox>().ToList();
             b3_Text = "";
-            foreach (System.Windows.Controls.CheckBox box in Checkboxes_b3)
+            j = 3;
+
+            for (int i = 1; i <= 10; i++)
             {
-                if (box.IsChecked == true)
+                object wantedCbNode = mainGrid.FindName($"cb_Block{j}_T{i}");
+                CheckBox wantedCb = wantedCbNode as CheckBox;
+
+                object wantedTbNode = mainGrid.FindName($"tb_Block{j}_T{i}");
+                TextBox wantedTb = wantedTbNode as TextBox;
+
+                if ((bool)wantedCb.IsChecked)
                 {
-                    b3_Text += box.Content + "\n";
+                    b3_Text += wantedTb.Text + "\n";
                 }
+
+
             }
 
             // Блок 4
-            var Checkboxes_b4 = StackPanel_b4.Children.OfType<System.Windows.Controls.CheckBox>().ToList();
             b4_Text = "";
-            foreach (System.Windows.Controls.CheckBox box in Checkboxes_b4)
+            j = 4;
+
+            for (int i = 1; i <= 10; i++)
             {
-                if (box.IsChecked == true)
+                object wantedCbNode = mainGrid.FindName($"cb_Block{j}_T{i}");
+                CheckBox wantedCb = wantedCbNode as CheckBox;
+
+                object wantedTbNode = mainGrid.FindName($"tb_Block{j}_T{i}");
+                TextBox wantedTb = wantedTbNode as TextBox;
+
+                if ((bool)wantedCb.IsChecked)
                 {
-                    b4_Text += box.Content + "\n";
+                    b4_Text += wantedTb.Text + "\n";
                 }
+
+
             }
 
             // Блок 5
-            var Checkboxes_b5 = StackPanel_b5.Children.OfType<System.Windows.Controls.CheckBox>().ToList();
             b5_Text = "";
-            foreach (System.Windows.Controls.CheckBox box in Checkboxes_b5)
+            j = 5;
+
+            for (int i = 1; i <= 10; i++)
             {
-                if (box.IsChecked == true)
+                object wantedCbNode = mainGrid.FindName($"cb_Block{j}_T{i}");
+                CheckBox wantedCb = wantedCbNode as CheckBox;
+
+                object wantedTbNode = mainGrid.FindName($"tb_Block{j}_T{i}");
+                TextBox wantedTb = wantedTbNode as TextBox;
+
+                if ((bool)wantedCb.IsChecked)
                 {
-                    b5_Text += box.Content + "\n";
+                    b5_Text += wantedTb.Text + "\n";
                 }
+
+
             }
 
             // Блок 6
-            var Checkboxes_b6 = StackPanel_b6.Children.OfType<System.Windows.Controls.CheckBox>().ToList();
             b6_Text = "";
-            foreach (System.Windows.Controls.CheckBox box in Checkboxes_b6)
+            j = 6;
+
+            for (int i = 1; i <= 10; i++)
             {
-                if (box.IsChecked == true)
+                object wantedCbNode = mainGrid.FindName($"cb_Block{j}_T{i}");
+                CheckBox wantedCb = wantedCbNode as CheckBox;
+
+                object wantedTbNode = mainGrid.FindName($"tb_Block{j}_T{i}");
+                TextBox wantedTb = wantedTbNode as TextBox;
+
+                if ((bool)wantedCb.IsChecked)
                 {
-                    b6_Text += box.Content + "\n";
+                    b6_Text += wantedTb.Text + "\n";
                 }
+
+
             }
 
             // Блок 7
-            var Checkboxes_b7 = StackPanel_b7.Children.OfType<System.Windows.Controls.CheckBox>().ToList();
             b7_Text = "";
-            foreach (System.Windows.Controls.CheckBox box in Checkboxes_b7)
+            j = 7;
+
+            for (int i = 1; i <= 10; i++)
             {
-                if (box.IsChecked == true)
+                object wantedCbNode = mainGrid.FindName($"cb_Block{j}_T{i}");
+                CheckBox wantedCb = wantedCbNode as CheckBox;
+
+                object wantedTbNode = mainGrid.FindName($"tb_Block{j}_T{i}");
+                TextBox wantedTb = wantedTbNode as TextBox;
+
+                if ((bool)wantedCb.IsChecked)
                 {
-                    b7_Text += box.Content + "\n";
+                    b7_Text += wantedTb.Text + "\n";
                 }
+
+
             }
 
             // Блок 8
-            var Checkboxes_b8 = StackPanel_b8.Children.OfType<System.Windows.Controls.CheckBox>().ToList();
             b8_Text = "";
-            foreach (System.Windows.Controls.CheckBox box in Checkboxes_b8)
+            j = 8;
+
+            for (int i = 1; i <= 10; i++)
             {
-                if (box.IsChecked == true)
+                object wantedCbNode = mainGrid.FindName($"cb_Block{j}_T{i}");
+                CheckBox wantedCb = wantedCbNode as CheckBox;
+
+                object wantedTbNode = mainGrid.FindName($"tb_Block{j}_T{i}");
+                TextBox wantedTb = wantedTbNode as TextBox;
+
+                if ((bool)wantedCb.IsChecked)
                 {
-                    b8_Text += box.Content + "\n";
+                    b8_Text += wantedTb.Text + "\n";
                 }
+
+
             }
 
             // Блок 9
-            b9_Text = tb_Block9_T1.Text;
+            b9_Text = "";
+            j = 9;
+
+            for (int i = 1; i <= 10; i++)
+            {
+                object wantedCbNode = mainGrid.FindName($"cb_Block{j}_T{i}");
+                CheckBox wantedCb = wantedCbNode as CheckBox;
+
+                object wantedTbNode = mainGrid.FindName($"tb_Block{j}_T{i}");
+                TextBox wantedTb = wantedTbNode as TextBox;
+
+                if ((bool)wantedCb.IsChecked)
+                {
+                    b9_Text += wantedTb.Text + "\n";
+                }
+
+
+            }
 
             // Блок 10
-            var Checkboxes_b10 = StackPanel_b10.Children.OfType<System.Windows.Controls.CheckBox>().ToList();
-            b10_Text = "";
-            foreach (System.Windows.Controls.CheckBox box in Checkboxes_b10)
-            {
-                if (box.IsChecked == true)
-                {
-                    b10_Text += box.Content + "\n";
-                }
-            }
+            b10_Text = tb_Block10_T1.Text;
 
             // Работа с Word__________________________________________ 
 
             object oMissing = Missing.Value;
-            object templatePathObj = Environment.CurrentDirectory + "\\Template.dotx" ;
+            object templatePathObj = Environment.CurrentDirectory + "\\Template.dotx";
             object falseObj = false;
-            
+
             Word._Application oWord;
             Word._Document oDoc;
             oWord = new Word.Application();
@@ -157,6 +249,9 @@ namespace WPF_Word
             {
                 oDoc = oWord.Documents.Add(ref templatePathObj, ref oMissing, ref oMissing, ref oMissing);
                 oWord.Visible = true;
+
+                
+
 
                 //Заполняем документ по закладкам
 
@@ -193,17 +288,70 @@ namespace WPF_Word
                 Word.Range wordRange11 = oDoc.Bookmarks.get_Item("Date").Range;
                 wordRange11.Text = tb_ResumeDate.Text;
 
+                Word.Window wordWindow = oWord.ActiveWindow;
+                wordWindow.SetFocus();
+                wordWindow.Activate();
+
             }
 
             catch (Exception err)
             {
-                
+
                 oWord.Quit(ref oMissing, ref oMissing, ref oMissing);
                 oDoc = null;
                 oWord = null;
                 MessageBox.Show("Ошибка работы с шаблоном MS Word: \r\n\r\n" + err.ToString(), "Ошибка!");
                 throw;
             }
+
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            LoadJson();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            SaveJson();
+        }
+
+        public void LoadJson()
+        {
+            List<UiTbItem> tbItemList = new List<UiTbItem>();
+
+            tbItemList.Clear();
+            string jsonData = File.ReadAllText("text_data.json");
+            tbItemList = JsonConvert.DeserializeObject<List<UiTbItem>>(jsonData);
+
+            foreach (UiTbItem item in tbItemList)
+            {
+                object wantedNode = mainGrid.FindName(item.ElementName);
+                TextBox wantedChild = wantedNode as TextBox;
+                wantedChild.Text = item.Text;
+
+            }
+        }
+
+        public void SaveJson()
+        {
+            List<UiTbItem> tbItemList = new List<UiTbItem>();
+            tbItemList.Clear();
+
+            for (int j = 2; j <= 9; j++)
+            {
+                for (int i = 1; i <= 10; i++)
+                {
+                    object wantedNode = mainGrid.FindName($"tb_Block{j}_T{i}");
+                    if (wantedNode is TextBox)
+                    {
+                        TextBox wantedChild = wantedNode as TextBox;
+                        tbItemList.Add(new UiTbItem(wantedChild.Name, wantedChild.Text));
+                    }
+                }
+            }
+
+            File.WriteAllText("text_data.json", JsonConvert.SerializeObject(tbItemList, Formatting.Indented));
 
         }
 
