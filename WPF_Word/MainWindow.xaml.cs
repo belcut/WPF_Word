@@ -59,7 +59,7 @@ namespace WPF_Word
                 $"Социальная среда: {tb_Block1_T6.Text}";
 
             // Блок 2
-            //var Checkboxes_b2 = StackPanel_b2.Children.OfType<System.Windows.Controls.CheckBox>().ToList();
+            
             
             
             b2_Text = "";
@@ -80,17 +80,6 @@ namespace WPF_Word
 
                 
             }
-
-
-
-
-            /*foreach (System.Windows.Controls.CheckBox box in Checkboxes_b2)
-            {
-                if (box.IsChecked == true)
-                {
-                    b2_Text += box.Content + "\n";
-                }
-            }*/
 
             // Блок 3
             b3_Text = "";
@@ -235,6 +224,11 @@ namespace WPF_Word
             // Блок 10
             b10_Text = tb_Block10_T1.Text;
 
+
+            // Сохраняем данные интерфейса на всякий
+
+            SaveJson();
+
             // Работа с Word__________________________________________ 
 
             object oMissing = Missing.Value;
@@ -318,18 +312,24 @@ namespace WPF_Word
 
         public void LoadJson()
         {
-            List<UiTbItem> tbItemList = new List<UiTbItem>();
+            
 
-            tbItemList.Clear();
-            string jsonData = File.ReadAllText("text_data.json");
-            tbItemList = JsonConvert.DeserializeObject<List<UiTbItem>>(jsonData);
+            if (File.Exists("text_data.json")) {
 
-            foreach (UiTbItem item in tbItemList)
-            {
-                object wantedNode = mainGrid.FindName(item.ElementName);
-                TextBox wantedChild = wantedNode as TextBox;
-                wantedChild.Text = item.Text;
+                List<UiTbItem> tbItemList = new List<UiTbItem>();
 
+                tbItemList.Clear();
+
+                string jsonData = File.ReadAllText("text_data.json");
+                tbItemList = JsonConvert.DeserializeObject<List<UiTbItem>>(jsonData);
+
+                foreach (UiTbItem item in tbItemList)
+                {
+                    object wantedNode = mainGrid.FindName(item.ElementName);
+                    TextBox wantedChild = wantedNode as TextBox;
+                    wantedChild.Text = item.Text;
+
+                }
             }
         }
 
