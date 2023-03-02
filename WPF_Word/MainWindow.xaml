@@ -38,9 +38,9 @@
                         </ui:SimpleStackPanel>
                         <ui:SimpleStackPanel Margin="12" Spacing="10" Orientation="Vertical" VerticalAlignment="Center">
                             <TextBlock Text="Краткий анамнез со слов мамы:" VerticalAlignment="Center" />
-                            <TextBox x:Name="tb_Block1_T1" HorizontalAlignment="Stretch" Height="60" AcceptsReturn="True" Text="В первой половине беременности отмечался слабый токсикоз; во второй половине беременности отмечался тонус, маловодие." TextWrapping="Wrap" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto"/>
+                            <TextBox x:Name="tb_Block1_T1" HorizontalAlignment="Stretch" Height="60" AcceptsReturn="True" Text="" TextWrapping="Wrap" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto"/>
                             <TextBlock Text="Роды:" VerticalAlignment="Center" />
-                            <TextBox x:Name="tb_Block1_T2" HorizontalAlignment="Stretch" Height="60" AcceptsReturn="True" Text="в срок, на 39 неделе, самостоятельные с применением капельницы. Ребенок родился в ягодичном предлежании. Вес ребенка при рождении 3150 гр., рост 52 см." TextWrapping="Wrap"/>
+                            <TextBox x:Name="tb_Block1_T2" HorizontalAlignment="Stretch" Height="60" AcceptsReturn="True" Text="" TextWrapping="Wrap"/>
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="1*"/>
@@ -48,15 +48,15 @@
                                 </Grid.ColumnDefinitions>
                                 <ui:SimpleStackPanel Margin="0" Spacing="10" Orientation="Vertical" VerticalAlignment="Center" Grid.Column="0">
                                     <TextBlock Text="Моторное развитие: " VerticalAlignment="Center" />
-                                    <TextBox x:Name="tb_Block1_T3" Margin="0,0,20,0"  HorizontalAlignment="Stretch" Height="50" AcceptsReturn="True" Text="голову держит / ползает – нет данных; сидит с 6 мес., ходит самостоятельно с 10 мес." TextWrapping="WrapWithOverflow"/>
+                                    <TextBox x:Name="tb_Block1_T3" Margin="0,0,20,0"  HorizontalAlignment="Stretch" Height="50" AcceptsReturn="True" Text="" TextWrapping="WrapWithOverflow"/>
                                     <TextBlock Text="Речевое развитие:" VerticalAlignment="Center" />
-                                    <TextBox x:Name="tb_Block1_T4" Margin="0,0,20,0" HorizontalAlignment="Stretch" Height="50" AcceptsReturn="True" Text="гуление / лепет / первые слова / фразы – нет данных." TextWrapping="WrapWithOverflow"/>
+                                    <TextBox x:Name="tb_Block1_T4" Margin="0,0,20,0" HorizontalAlignment="Stretch" Height="50" AcceptsReturn="True" Text="" TextWrapping="WrapWithOverflow"/>
                                 </ui:SimpleStackPanel>
                                 <ui:SimpleStackPanel Margin="0" Spacing="10" Orientation="Vertical" VerticalAlignment="Center" Grid.Column="1">
                                     <TextBlock Text="Состав семьи:" VerticalAlignment="Center" />
-                                    <TextBox x:Name="tb_Block1_T5" HorizontalAlignment="Stretch" Height="50" AcceptsReturn="True" Text="мама, папа, младшая сестра." TextWrapping="WrapWithOverflow"/>
+                                    <TextBox x:Name="tb_Block1_T5" HorizontalAlignment="Stretch" Height="50" AcceptsReturn="True" Text="" TextWrapping="WrapWithOverflow"/>
                                     <TextBlock Text="Социальная среда:" VerticalAlignment="Center" />
-                                    <TextBox x:Name="tb_Block1_T6" HorizontalAlignment="Stretch" Height="50" AcceptsReturn="True" Text="посещает детский садик." TextWrapping="WrapWithOverflow"/>
+                                    <TextBox x:Name="tb_Block1_T6" HorizontalAlignment="Stretch" Height="50" AcceptsReturn="True" Text="" TextWrapping="WrapWithOverflow"/>
                                 </ui:SimpleStackPanel>
                             </Grid>
 
