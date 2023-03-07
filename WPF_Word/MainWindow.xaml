@@ -8,7 +8,7 @@
         Title="WordWordWord!" Height="600" Width="1200"  MinHeight="700" MinWidth="1300"
         xmlns:ui="http://schemas.modernwpf.com/2019"
         
-    ui:WindowHelper.UseModernWindowStyle="True" Loaded="Window_Loaded" Closing="Window_Closing">
+    ui:WindowHelper.UseModernWindowStyle="True" Loaded="Window_Loaded"  Closing="Window_Closing">
 
     <Grid x:Name="mainGrid">
         <Grid.RowDefinitions>
